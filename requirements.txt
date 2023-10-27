@@ -26,3 +26,5 @@ wheel==0.41.2
 # pip
 # setuptools
 airflow==2.2.3
+
+syntax-init
