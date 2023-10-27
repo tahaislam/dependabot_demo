@@ -6,7 +6,7 @@
 #
 build==1.0.3
     # via pip-tools
-click==8.1.7
+click==1.1.0
     # via pip-tools
 packaging==23.1
     # via build
