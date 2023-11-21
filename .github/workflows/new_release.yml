@@ -32,6 +32,7 @@ jobs:
     steps:
       - run: gh release create 'v$VERSION' --draft --generate-notes --latest --target main --title 'VFH $VERSION'
         env:
+          GH_TOKEN: ${{ github.PTC }}
           VERSION: ${{ job.get_version.outputs.substring }}
   ini_new_dev_release:
     needs: get_version
