@@ -18,12 +18,13 @@ jobs:
     steps:
       - run: echo "This PR's base branch is ${{ github.head_ref }}"
   get_version:
+    needs: if_base_release
     runs-on: ubuntu-latest
     steps:
       - uses: bhowell2/github-substring-action@1.0.2
         id: two
         with:
-          value: github.head_ref
+          value: ${{ github.head_ref }}
           index_of_str: "releases/"
   draft_a_release:
     needs: get_version
