@@ -18,6 +18,7 @@ jobs:
     steps:
       - run: echo "This PR's base branch is ${{ github.head_ref }}"
   get_version:
+    runs-on: ubuntu-latest
     steps:
       - uses: bhowell2/github-substring-action@1.0.2
         id: two
@@ -42,9 +43,9 @@ jobs:
             -F generate_release_notes=true 
         env:
           GITHUB_TOKEN: ${{ secrets.PTC }}
-          VERSION: ${{ jobs.get_version.outputs.substring }}
+          VERSION: ${{ job.get_version.outputs.substring }}
   ini_new_dev_release:
-    needs: if_base_release
+    needs: get_version
     runs-on: ubuntu-latest
     steps:
       - run: |
