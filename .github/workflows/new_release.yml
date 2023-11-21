@@ -43,7 +43,7 @@ jobs:
             -F prerelease=false \
             -F generate_release_notes=true 
         env:
-          GH_TOKEN: ${{ secrets.PTC }}
+          GH_TOKEN: ${{ github.PTC }}
           VERSION: ${{ job.get_version.outputs.substring }}
   ini_new_dev_release:
     needs: get_version
@@ -56,5 +56,5 @@ jobs:
           and `latest_release_tag` to $TAG_NAME. Remember also to create a new milestone for the upcoming release.
           \n**Created by Github action.**'
         env:
-          GH_TOKEN: ${{ secrets.PTC }}
+          GH_TOKEN: ${{ github.PTC }}
           TAG_NAME: ${{ github.event.release.tag_name }}
