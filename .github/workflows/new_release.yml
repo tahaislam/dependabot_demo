@@ -39,10 +39,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          gh issue create --title 'Update the version number for the new release'
-          --label 'ignore-for-release' --project 'VFH Data Management'
-          --body 'Please, update the version number (`version`) in docs/source/conf.py to an appropriate value
-          and `latest_release_tag` to $TAG_NAME. Remember also to create a new milestone for the upcoming release.
+          gh issue create --title 'Update the version number for the new release' \
+          --label 'ignore-for-release' --project 'VFH Data Management' \
+          --body 'Please, update the version number (`version`) in docs/source/conf.py to an appropriate value \
+          and `latest_release_tag` to $TAG_NAME. Remember also to create a new milestone for the upcoming release. \
           \n**Created by Github action.**'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
