@@ -32,7 +32,7 @@ jobs:
     steps:
       - run: gh release create 'v$VERSION' --draft --generate-notes --latest --target main --title 'VFH $VERSION'
         env:
-          GH_TOKEN: ${{ secrets.PTC }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ job.get_version.outputs.substring }}
   ini_new_dev_release:
     needs: get_version
@@ -45,5 +45,5 @@ jobs:
           and `latest_release_tag` to $TAG_NAME. Remember also to create a new milestone for the upcoming release.
           \n**Created by Github action.**'
         env:
-          GITHUB_TOKEN: ${{ github.PTC }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_NAME: ${{ github.event.release.tag_name }}
